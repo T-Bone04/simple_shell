@@ -6,6 +6,8 @@
 #include <string.h>
 #include <unistd.h>
 
+#define BUFSIZE 1024
+
 /* int execve(const char *pathname, char *const argv[], char *const envp[]); */
 void execmd(char **argv);
 /*ge_tline.c*/
