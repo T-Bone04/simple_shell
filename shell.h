@@ -16,6 +16,9 @@
 
 #define BUFSIZE 1024
 #define STDIN_FILENO 1
+#define NULL ((void *)0)
+
+extern char **environ;
 
 /**
  *Struct sliststr - linked lists singly.
@@ -48,6 +51,8 @@ typedef struct continfo
 /* int execve(const char *pathname, char *const argv[], char *const envp[]); */
 void execmd(char **argv);
 
+/*exitt.c*/
+void exit(int status);
 /*environ.c*/
 char **get_envir(data_t *);
 int un_setenv(data_t *, char *);
