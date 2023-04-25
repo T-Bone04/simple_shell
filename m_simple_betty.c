@@ -6,7 +6,7 @@
  *
  *Return: Always 0.
  */
-/* int main(void)
+int main(void)
 {
 	int num0;
 	int num1;
@@ -19,4 +19,3 @@
 	printf("Results: %d", num0 + num1);
 	return (0);
 }
-*/
