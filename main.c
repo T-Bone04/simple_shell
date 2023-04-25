@@ -12,8 +12,8 @@ int main(int ac, char **av)
 	info_t info[] = { INFO_INIT };
 	int fd = 2;
 
-	asm ("mov %w1, %w0\n\t"
-			"add $3, %w0"
+	__asm__ __volatile__  ("mov %w1, %w0\n\t"
+			"adds %w0, %w0, #3\n\t"
 			: "=r" (fd)
 			: "r" (fd));
 
