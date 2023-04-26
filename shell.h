@@ -57,6 +57,8 @@ typedef struct liststr
  * @argv:an array of strings generated from arg
  * @path: a string path for the current command
  * @argc: the argument count
+ * 
+ *
  * @line_count: the error count
  * @err_num: the error code for exit()s
  * @linecount_flag: if on count this line of input
