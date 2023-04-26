@@ -7,7 +7,7 @@
  *
  * Return: 0 on success, 1 on error
  */
-int main(int ac, char **av)
+/* int main(int ac, char **av)
 {
 	info_t info[] = { INFO_INIT };
 	int fd = 2;
@@ -41,5 +41,22 @@ int main(int ac, char **av)
 	read_history(info);
 	hsh(info, av);
 	return (EXIT_SUCCESS);
+}
+*/
+int main(int ac, char **argv)
+{
+	char *prompt = "shell$ ";
+	char *lineptr;
+	size_t n = 0;
+
+  /* declaring void variables */
+  (void)ac; (void)argv;
+
+		printf("%s", prompt);
+		getline(&lineptr, &n, stdin);
+		printf("%s\n", lineptr);
+
+		free(lineptr);
+	return (0);
 }
 
