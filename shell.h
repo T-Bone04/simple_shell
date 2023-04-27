@@ -234,4 +234,7 @@ int replace_alias(info_t *);
 int replace_vars(info_t *);
 int replace_string(char **, char *);
 
+/* execmd.h */
+void execmd(char **args);
+
 #endif
