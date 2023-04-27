@@ -1,21 +1,19 @@
 #include "shell.h"
 
-<<<<<<< HEAD
-=======
 /**
- * _myexit - exits the shell
- * @info: Structure containing potential arguments. Used to maintain
+ * exit_shell - exits the shell
+ * @data: Structure containing potential arguments. Used to maintain
  * constant function prototype.
  * Return: exits with a given exit status
  * (0) if info.argv[0] != "exit"
  */
-int _myexit(info_t *info)
+int exit_shell(descript_t *data)
 {
-	int exitcheck;
+	int checker;
 
-	if (info->argv[1]) /* If there is an exit arguement */
+	if (data->arguv[1]) /* If there is an exit arguement */
 	{
-		exitcheck = _erratoi(info->argv[1]);
+		checker = _erratoi(info->argv[1]);
 		if (exitcheck == -1)
 		{
 			info->status = 2;
