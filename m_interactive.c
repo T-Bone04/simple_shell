@@ -40,7 +40,7 @@ int alpha_checker(int d)
 {
 	int j = 'a';
 
-	while (i <= 'z')
+	while (j <= 'z')
 	{
 		if (d == j)
 			return (1);
@@ -87,7 +87,7 @@ int Strng_Converter(char *strng)
 			j++;
 	}
 
-	if (sign == -1)
+	if (sgn_n == -1)
 		result = -answer;
 	else
 		result = answer;
