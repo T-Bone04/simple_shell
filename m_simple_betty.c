@@ -16,6 +16,6 @@ int main(void)
 	printf("Second number: ");
 	scanf("%d", &num1);
 
-	printf("Results: %d", num0 + num1);
+	printf("Results: %d\n", num0 + num1);
 	return (0);
 }

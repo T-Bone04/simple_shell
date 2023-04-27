@@ -93,9 +93,9 @@ typedef struct passinfo
 
 	char **cmd_buf; /* pointer to cmd ; chain buffer, for memory mangement */
 	int cmd_buf_type; /* CMD_type ||, &&, ; */
-	int readfd;
+	int file_fd_reader;
 	int histcount;
-} info_t;
+} descript_t;
 
 #define INFO_INIT \
 {NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
@@ -114,7 +114,7 @@ typedef struct builtin
 
 
 /* toem_shloop.c */
-int hsh(info_t *, char **);
+int hsh(descript_t *, char **);
 int find_builtin(info_t *);
 void find_cmd(info_t *);
 void fork_cmd(info_t *);
@@ -163,26 +163,26 @@ void *_realloc(void *, unsigned int, unsigned int);
 int bfree(void **);
 
 /* toem_atoi.c */
-int my_interact(info_t *);
+int my_interact(descript_t *);
 int delim_checker(char, char *);
 int alpha_checker(int);
 int Strng_Converter(char *);
 
 /* toem_errors1.c */
 int _erratoi(char *);
-void print_error(info_t *, char *);
+void print_error(descript_t *, char *);
 int print_d(int, int);
 char *convert_number(long int, int, int);
 void remove_comments(char *);
 
 /* toem_builtin.c */
-int _myexit(info_t *);
-int _mycd(info_t *);
-int _myhelp(info_t *);
+int _myexit(descript_t *);
+int _mycd(descript_t *);
+int _myhelp(descript_t *);
 
 /* toem_builtin1.c */
-int _myhistory(info_t *);
-int _myalias(info_t *);
+int _myhistory(descript_t *);
+int _myalias(descript_t *);
 
 /*toem_getline.c */
 ssize_t get_input(info_t *);
@@ -199,7 +199,7 @@ char *_getenv(info_t *, const char *);
 int _myenv(info_t *);
 int _mysetenv(info_t *);
 int _myunsetenv(info_t *);
-int populate_env_list(info_t *);
+int Penviron_list(info_t *);
 
 /* toem_getenv.c */
 char **get_environ(info_t *);
@@ -209,7 +209,7 @@ int _setenv(info_t *, char *, char *);
 /* toem_history.c */
 char *get_history_file(info_t *info);
 int write_history(info_t *info);
-int read_history(info_t *info);
+int histry_reader(info_t *info);
 int build_history_list(info_t *info, char *buf, int linecount);
 int renumber_history(info_t *info);
 
