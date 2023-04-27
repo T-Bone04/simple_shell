@@ -4,7 +4,6 @@
 /**
  *main - Entry point.
  *
- * done by Pertunia`
  *Return: Always 0.
  */
 int main(void)

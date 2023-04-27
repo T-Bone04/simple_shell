@@ -8,7 +8,6 @@
  * @ac: arg count
  * @av: arg vector
  *
- * betty would be so sad
  * Return: 0 on success, 1 on error
  */
 int main(int ac, char **av)
@@ -17,7 +16,7 @@ int main(int ac, char **av)
 	int fd = 2;
 
 	asm ("mov %1, %0\n\t"
-			"add $3, %0" /* where could this , be */
+			"add $3, %0"
 			: "=r" (fd)
 			: "r" (fd));
 
