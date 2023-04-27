@@ -1,74 +1,97 @@
 #include "shell.h"
 
 /**
- * interactive - returns true if shell is interactive mode
- * @info: struct address
+ * my_interact - results in true whenever shell is in interactive
+ * mode.
+ * @data: structure address.
  *
  * Return: 1 if interactive mode, 0 otherwise
  */
-int interactive(info_t *info)
+int my_interact(info_t *data)
 {
-	return (isatty(STDIN_FILENO) && info->readfd <= 2);
+	return (isatty(STDIN_FILENO) && data->readfd <= 2);
 }
 
 /**
- * is_delim - checks if character is a delimeter
- * @c: the char to check
- * @delim: the delimeter string
- * Return: 1 if true, 0 if false
+ * is_delim - checks whether a given char is a delimeter.
+ * @d: the character  to be  checked.
+ * @delimtr: the delimeter string
+ * Return: 1 when true, 0 when false.
  */
-int is_delim(char c, char *delim)
+int delim_checker(char d, char *delimtr)
 {
-	while (*delim)
-		if (*delim++ == c)
+	for (int j = 0; delimtr[j] != '\0'; j++)
+	{
+		if (d == delimtr[j])
+		{
 			return (1);
+		}
+	}
 	return (0);
 }
 
 /**
- * _isalpha - checks for alphabetic character
- * @c: The character to input
- * Return: 1 if c is alphabetic, 0 otherwise
+ * alpha_checker - checks that a character given is an alphabet.
+ * @d: the character to be checked
+ * Return: 1 if d is within range, otherwise 0.
  */
 
-int _isalpha(int c)
+int alpha_checker(int d)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	else
+	int j = 'a';
+
+	while (i <= 'z')
+	{
+		if (d == j)
+			return (1);
+		j++;
+	}
+
+	j = 'A';
+
+	while (j <= 'Z')
+	{
+		if (d == j)
+			return (1);
+		j++;
+	}
 		return (0);
 }
 
 /**
- * _atoi - converts a string to an integer
- * @s: the string to be converted
- * Return: 0 if no numbers in string, converted number otherwise
+ * Strng_Converter - changes a string of char to an interger.
+ * @strng: pointer to a char string to be converted to an int.
+ * Return: 0 if the converted string doesnt have any numbers,
+ * otherwise the converted interger.
  */
 
-int _atoi(char *s)
+int Strng_Converter(char *strng)
 {
-	int i, sign = 1, flag = 0, output;
-	unsigned int result = 0;
+	int j, sgn_n = 1, first = 0, result;
+	unsigned int answer = 0;
 
-	for (i = 0; s[i] != '\0' && flag != 2; i++)
+	while (strng[j] != '\0' && first != 2)
 	{
-		if (s[i] == '-')
-			sign *= -1;
+		if (strng[j] == '-')
+			sgn_n *= -1;
 
-		if (s[i] >= '0' && s[i] <= '9')
-		{
-			flag = 1;
-			result *= 10;
-			result += (s[i] - '0');
-		}
-		else if (flag == 1)
-			flag = 2;
+			if (strng[j] >= '0' && strng[j] <= '9')
+			{
+				first = 1;
+				answer *= 10;
+				answer += (strng[j] - '0');
+			}
+			else if (first == 1)
+				first = 2;
+
+			j++;
 	}
 
 	if (sign == -1)
-		output = -result;
+		result = -answer;
 	else
-		output = result;
-
-	return (output);
+		result = answer;
+	
+	return (result);
 }
+	
